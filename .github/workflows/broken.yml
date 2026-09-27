@@ -1,4 +1,4 @@
-name: inspect
+name: site-check
 
 on: push
 
