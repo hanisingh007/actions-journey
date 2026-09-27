@@ -1,20 +1,12 @@
 name: site-check
-
 on: push
-
 jobs:
-  inspect:
+  verify:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Check out the repository
+      - name: Get the code
         uses: actions/checkout@v4
-
-      - name: Show runner details
-        run: |
-          uname -a
-          ls -la
-
-      - name: Count files in the repository
-        run: |
-          find . -type f | wc -l
+      - name: Read the readme
+        run: cat README.md
+      - name: Show the Python version
+        run: python3 --version
