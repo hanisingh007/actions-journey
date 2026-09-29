@@ -1,0 +1,17 @@
+name: notify
+on:
+  workflow_call:
+    inputs:
+      environment:
+        required: true
+        type: string
+    secrets:
+      NOTIFY_TOKEN:
+        required: true
+
+jobs:
+  send-notification:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print environment
+        run: echo "Notifying for environment: ${{ inputs.environment }}"
