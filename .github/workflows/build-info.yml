@@ -1,0 +1,12 @@
+name: build-info
+on: push
+
+jobs:
+  show-build-info:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v4
+
+      - name: Print build info
+        uses: ./.github/actions/build-info
