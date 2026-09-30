@@ -1,11 +1,13 @@
-name: announce
+name: Announce
+
 on: push
 
 jobs:
-  announce-app:
+  announce:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Check out the repository
+      - name: Checkout
         uses: actions/checkout@v4
 
       - name: Announce app
