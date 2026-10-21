@@ -1,0 +1,30 @@
+name: Concurrency Demo
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+concurrency:
+  group: my-demo-group
+  cancel-in-progress: true
+
+jobs:
+  demo:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Start
+        run: |
+          echo "Workflow started"
+          echo "Run number: $GITHUB_RUN_NUMBER"
+
+      - name: Simulate Long Task
+        run: |
+          echo "Task running..."
+          sleep 60
+          echo "Task completed"
+
+      - name: Finish
+        run: echo "Workflow finished successfully"
